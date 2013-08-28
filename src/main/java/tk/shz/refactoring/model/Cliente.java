@@ -8,9 +8,6 @@ import javax.persistence.Entity;
 @Entity
 public class Cliente extends BaseEntity implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4710972067660854236L;
 
 	@Column(nullable = false, length = 50)
@@ -37,5 +34,4 @@ public class Cliente extends BaseEntity implements Serializable {
 	public void setTaxa(Double taxa) {
 		this.taxa = taxa;
 	}
-
 }

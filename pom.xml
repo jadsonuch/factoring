@@ -41,6 +41,14 @@
 			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- default Jave EE jars don't include code necessary fo bytecode enhancement 
+			so we use these instead -->
+		<dependency>
+		    <groupId>javax</groupId>
+		    <artifactId>javaee-api</artifactId>
+		    <version>6.0</version>
+		    <scope>provided</scope>
+		</dependency>
 		<!-- JSF Dependencies -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
@@ -125,6 +133,21 @@
 		</dependency>		
 	</dependencies>
 	<build>
-		<finalName>${project.artifactId}</finalName>		
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-compiler-plugin</artifactId>
+			  <version>2.1</version>
+			  <configuration>
+			    <source>1.6</source>
+			    <target>1.6</target>
+			  </configuration>
+			</plugin>
+			<plugin>
+		        <artifactId>maven-war-plugin</artifactId>
+		        <version>2.3</version>
+		    </plugin>
+		</plugins>		
 	</build>
 </project>
